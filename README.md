@@ -8,7 +8,7 @@ The original repository previously contained an exploit kit but I've decided to 
 
 You'll need to spoof the botguard token used in the /accountLookup request.
 You can see `bgRequest=` in request params after submitting email.
-You'll need to retrieve that token and place it in evilginx's request params before evilginx sends out the request.
+You'll need to retrieve a valid token and place it in evilginx's request params before evilginx sends out the request.
 
 I used a headless browser session, [go-rod](https://github.com/go-rod/rod) to retrieve the token. It is set up to visit accounts.google.com, enter the victims email and retrieve the token from request params.
 The browser is set to launch after user submits email on phishing page.
