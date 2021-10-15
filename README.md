@@ -4,7 +4,7 @@ This repo will describe an exploit which is able to bypass Google's JavaScript l
 
 ## Update
 
-As of 14.10.2021, this method is no longer functional. Please see: https://github.com/berstend/puppeteer-extra/issues/578
+As of 14.10.2021, this method is no longer functional.
 
 #
 
