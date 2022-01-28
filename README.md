@@ -1,38 +1,38 @@
-# evilginx.botguard
+<div align="center" style="padding: 100px;">
+  <img alt="Gopher" src="https://www.upload.ee/image/13836698/XlhdIMk_sml_sml.png" height="100" />
+    <img alt="Evilginx" src="https://raw.githubusercontent.com/kgretzky/evilginx2/master/media/img/evilginx2-title-black-512.png" height="60" />
+  <img alt="Dot" src="https://fontmeme.com/permalink/220128/1d7d530a9125676cd8dd5f505cc69831.png" height="10" />
+    <img alt="Botguard" src="https://fontmeme.com/permalink/220128/bb533f894a48dd9253154f24a45f00d6.png" height="60" />
+    <img alt="Yao Ming Face" src="https://www.pngall.com/wp-content/uploads/2016/05/Yao-Ming-Face-PNG.png" height="80" s />
+</div>
 
 
-This repo will describe an exploit which is able to bypass Google's JavaScript login protection which blocks MITM phishing tools.
+This repo will describe a method which allows you to successfully use MITM phishing tools on Google's login page without JS raising a fuss and [blocking login](https://i.stack.imgur.com/MnjWd.png). 
 
-![gopher](https://i.imgur.com/XlhdIMk.png)
-
-## Update
-
-14.10 - this method is no longer functional.
-
-16.10 - berstend published a patch to [puppeteer-extra](https://github.com/berstend/puppeteer-extra). It works and you can easily import the new logic into go-rod.
-#
-
-### What happened here?
-The original repository previously contained an exploit kit but I've decided to only share the exploit write-up.
+I don't know what to name it and I don't like google bypasser so for the moment it's evilginx.botguard, since I found the way to bypass botguard while tinkering on evilginx and sort-of published it in the evilginx2 issues/PR section.
 
 ## Method
 
-You'll need to spoof the botguard token used in the /accountLookup request.
-You can see `bgRequest=` in request params after submitting email.
-You'll need to retrieve a valid token and place it in evilginx's request params before evilginx sends out the request.
+To succesfully log in via phishing page, you'll need to submit a **valid** botguard token in the /accountLookup request.
 
-I used a headless browser session, [go-rod](https://github.com/go-rod/rod) to retrieve the token. It is set up to visit accounts.google.com, enter the victims email and retrieve the token from request params.
-The browser is set to launch after user submits email on phishing page.
+You can see `bgRequest=` in request params after submitting email, this is the botguard token.
+Retrieve a valid token and replace the non-working token with the new, valid token.
+Tokens are tied to specific accounts. A way to get a valid token, is to simply generate one on the real google.com page by trying to log in.
+
+I used a headless browser, [go-rod](https://github.com/go-rod/rod) to retrieve the token. It will visit accounts.google.com, enter the victim's email and retrieve the token from request params.
 
 ## Notes
 
-The previously described method takes about 4-8 sec. I've sped it up by making a REST API which retrieves the token. I used a global browser session and set it up so the API is opening a new page for each request (vs new browser session).
-
-The REST API initially takes 2-4 sec to retrieve the token, further requests take 0.2 sec on average. If you can work out a way to use the same page for each request, the time may possibly drop down to 0.08 sec. 
+The previously described method takes about 4-8 sec. I've sped it up by making a REST API which retrieves the token. It initially takes 2-4 sec to start the browser and further requests take 0.2 sec on average. If you can work out a way to use the same page for each request, the time may possibly drop down to 0.08 sec. 
 
 It's also worth noting that you do not have to send out the headless browser's request, since the botguard token is generated clientside via JS. Hijacking and blocking the request is a good approach to avoid being throttled and/or captcha'd.
 
-Botguard also detects headless browser sessions, but you can use puppeteer's stealth-evasions via [go-rod/stealth](https://github.com/go-rod/stealth)
+As previously described, the botguard token is generated clientside via JS. To make it you require some form of binary which get executed at custom javascript VM. The resulting token should be an encrypted string containing some interesting information about you and your visit.
+
+The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the domain differs from google.com. If you use google.com as your phishing domain and add "127.0.0.1 google.com" to your /etc/hosts file, the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. 
+
+Google's botguard detects headless browser sessions. You have to use puppeteer's stealth-evasions via [go-rod/stealth](https://github.com/go-rod/stealth). It's possible that more ways to detect headless browsers will be added by Google in the future, ergo more evasion methods must be made.
+
 ## Up to now
 
 ![current](./current.png)
@@ -40,3 +40,8 @@ Botguard also detects headless browser sessions, but you can use puppeteer's ste
 ## Working exploit
 
 ![botguard](./botguard.png)
+
+
+## Contact
+
+Feel free to reach out to my email address listed on my GitHub profile if you want to say thanks or something. I'm touching on subjects like this repo on the daily because I spend most of my time doing freelance work. My email is open to job offers if you think I'd suit you.
