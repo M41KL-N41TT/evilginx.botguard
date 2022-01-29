@@ -44,4 +44,4 @@ Google's botguard detects headless browser sessions. You have to use puppeteer's
 
 ## Contact
 
-Feel free to reach out to my email address listed on my GitHub profile if you want to say thanks or something. I'm touching on subjects like this repo on the daily because I spend most of my time doing freelance work. My email is open to job offers if you think I'd suit you.
+Feel free to reach out to my email address listed on my GitHub profile if you want to hire me, say thanks, or point out inaccuracies/mistakes I made.
