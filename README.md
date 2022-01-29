@@ -9,8 +9,6 @@
 
 This repo will describe a method which allows you to successfully use MITM phishing tools on Google's login page without JS raising a fuss and [blocking login](https://i.stack.imgur.com/MnjWd.png). 
 
-I don't know what to name it and I don't like google bypasser so for the moment it's evilginx.botguard, since I found the way to bypass botguard while tinkering on evilginx and sort-of published it in the evilginx2 issues/PR section.
-
 ## Method
 
 To succesfully log in via phishing page, you'll need to submit a **valid** botguard token in the /accountLookup request.
