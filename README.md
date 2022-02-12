@@ -21,15 +21,17 @@ I used a headless browser, [go-rod](https://github.com/go-rod/rod) to retrieve t
 
 ## Notes
 
-The previously described method takes about 4-8 sec. I've sped it up by making a REST API which retrieves the token. It initially takes 2-4 sec to start the browser and further requests take 0.2 sec on average. If you can work out a way to use the same page for each request, the time may possibly drop down to 0.08 sec. 
+The previously described method is quite slow, taking about 10 seconds on my setup. I've sped it up a bit by using a REST API to retrieve the token. It initially takes 2-4 sec to start the browser, requests to open a new tab and retrieve the token take less than that. I didn't fully explore this path, but it seems that if you can work out a way to use the same page for each request, the time may possibly drop down to a few hundred milliseconds. 
 
-It's also worth noting that you do not have to send out the headless browser's request, since the botguard token is generated clientside via JS. Hijacking and blocking the request is a good approach to avoid being throttled and/or captcha'd.
+It's also worth noting that you do not have to send out the headless browser's request, since the botguard token is generated clientside via JS. Hijacking and blocking the request is a good approach to avoid being throttled and captcha'd.
 
 As previously described, the botguard token is generated clientside via JS. To make it you require some form of binary which get executed at custom javascript VM. The resulting token *might* be an encrypted string containing personally identifiable information, fingerprints, JS variables declared outside the VM, mouse data etc.
 
-The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the domain differs from google.com. If you use google.com as your phishing domain and add "127.0.0.1 google.com" to your /etc/hosts file, the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. 
+The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the domain differs from google.com. If you use google.com as your phishing domain and add "127.0.0.1 google.com" to your /etc/hosts file, the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. I guess the `window.location` value is stored in the botguard token.
 
-Google's botguard detects headless browser sessions. To circumvent this, you can use puppeteer's [stealth plugin](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth). If you wish to use these evasions in go-rod, then you can do so via the [go-rod/stealth](https://github.com/go-rod/stealth) package. Since the genesis of this repository, by fluke or by design, the Google login page detected the headless browser once, prompting an extra evasion to be created.  It's possible that more ways to detect headless browsers will be added by Google in the future, ergo more evasion methods must be made.
+Google's botguard detects headless browser sessions. To circumvent this, you can use puppeteer's [stealth plugin](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth). If you wish to use these evasions in go-rod, then you can do so via the [go-rod/stealth](https://github.com/go-rod/stealth) package. 
+
+Since the genesis of this repository, by fluke or by design, the Google login page detected the headless browser once, prompting an extra evasion to be created.  It's possible that more ways to detect headless browsers will be added by Google in the future, ergo more evasion methods must be made.
 
 ## Up to now
 
