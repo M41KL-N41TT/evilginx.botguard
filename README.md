@@ -29,7 +29,7 @@ As previously described, the botguard token is generated clientside via JS. To m
 
 The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the domain differs from google.com. If you use google.com as your phishing domain and add "127.0.0.1 google.com" to your /etc/hosts file, the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. 
 
-Google's botguard detects headless browser sessions. You have to use puppeteer's stealth-evasions via [go-rod/stealth](https://github.com/go-rod/stealth). It's possible that more ways to detect headless browsers will be added by Google in the future, ergo more evasion methods must be made.
+Google's botguard detects headless browser sessions. To circumvent this, you can use puppeteer's [stealth plugin](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth). If you wish to use these evasions in go-rod, then you can do so via the [go-rod/stealth](https://github.com/go-rod/stealth) package. Since the genesis of this repository, by fluke or by design, the Google login page detected the headless browser once, prompting an extra evasion to be created.  It's possible that more ways to detect headless browsers will be added by Google in the future, ergo more evasion methods must be made.
 
 ## Up to now
 
