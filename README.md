@@ -27,7 +27,7 @@ It's also worth noting that you do not have to send out the headless browser's r
 
 As previously described, the botguard token is generated clientside via JS. To make it you require some form of binary which get executed at custom javascript VM. The resulting token *might* be an encrypted string containing personally identifiable information, fingerprints, JS variables declared outside the VM, mouse data etc.
 
-The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the domain differs from google.com. If you use google.com as your phishing domain and add "127.0.0.1 google.com" to your /etc/hosts file, the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. I guess the `window.location` value is stored in the botguard token.
+The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the phishing page's domain differs from google.com. If you use google.com as your phishing domain and map google.com to localhost ("127.0.0.1 google.com" to your /etc/hosts file), the login process on the phishing page works flawlessly. You can get the credentials and auth tokens. I guess the `window.location` value or domain is somehow stored in the botguard token.
 
 Google's botguard detects headless browser sessions. To circumvent this, you can use puppeteer's [stealth plugin](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth). If you wish to use these evasions in go-rod, then you can do so via the [go-rod/stealth](https://github.com/go-rod/stealth) package. 
 
