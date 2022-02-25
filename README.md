@@ -53,7 +53,7 @@ Feel free to reach out to me if you want to say thanks or point out any inaccura
 
 ![current](./current.png)
 
-## Working exploit
+## Working method
 
 ![botguard](./botguard.png)
 
