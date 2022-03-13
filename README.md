@@ -33,7 +33,8 @@ I used a headless browser, [go-rod](https://github.com/go-rod/rod) to retrieve t
 
 ## Notes
 
-The previously described method is quite slow, taking about 10 seconds on my setup. I've sped it up a bit by using a REST API to retrieve the token. It initially takes 2-4 sec to start the browser, requests to open a new tab and retrieve the token take less than that. I didn't fully explore this path, but it seems that if you can work out a way to use the same page for each request, the time may possibly drop down to a few hundred milliseconds. Update: It can be done using a single page session. The page's HTML can be saved and restored via browser CDP/JavaScript. I got the speed down to about 100ms per request.
+The previously described method is quite slow, taking about 10 seconds on my setup. I've sped it up a bit by using a REST API to retrieve the token. It initially takes 2-4 sec to start the browser, requests to open a new tab and retrieve the token take less than that. I didn't fully explore this path, but it seems that if you can work out a way to use the same page for each request, the time may possibly drop down to a few hundred milliseconds. 
+*Update: It can be done using a single page session. The page's HTML can be saved and restored via browser CDP/JavaScript. I got the speed down to about 100ms per request.*
 
 It's also worth noting that you do not have to send out the headless browser's request, since the botguard token is generated clientside via JS. Hijack and block the request so you don't get throttled/captcha'd.
 
