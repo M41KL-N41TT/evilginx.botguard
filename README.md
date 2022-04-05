@@ -15,11 +15,11 @@ What I'm describing isn't a generator that creates botguard tokens nor a bypass 
 
 ## Why
 
-February 2021, I wanted to use evilginx2 to make a Google phishing page and phish someone. I started to research why the then existing Google phishlets fail after submitting email and how to make a working phishlet. With no experience analyzing JavaScript (even less with JS run through Closure Compiler), I played around with the login process in Burp for months on end to find this method.
+February 2021 I wanted to use evilginx2 to make a phishing page for Google. I started to research why the then existing Google phishlets fail after submitting email and how to make a working phishlet. With little experience analyzing JavaScript (god damn the Closure Compiler), I played around with the login process in Burp for months on end to find this method.
 
-Initially created for my own use case, to phish one person, it fulfilled my needs. Headless browsers, however, are memory intensive and to deploy this method *en masse* in a phishing campaign isn't a good idea. 
+Initially created for my own use case to go spear phishing, it fulfilled my needs. Headless browsers, however, are memory intensive and to deploy this method *en masse* in a phishing campaign isn't a good idea. Perhaps using a properly managed cluster of browsers would work, but I still have doubts
 
-A proper solution would be to rewrite whatever checks are made in JS so that botguard won't trigger a rejected response. I'm not that knowledgeable on modern anti-bot systems nor have any solid experience analyzing JavaScript, so that solution is out of my reach for time being until I'm well-versed on the topic and able to make an exploit
+A proper solution would be to rewrite whatever checks are made in JS so that botguard won't trigger a rejected response. I haven't looked into modern anti-bot systems nor have I had any success analyzing JavaScript, so that solution is out of my reach for time being until I'm well-versed on the topic and able to make an exploit. 
 
 ## How
 
@@ -38,9 +38,9 @@ The previously described method is quite slow, taking about 10 seconds on my set
 
 It's also worth noting that you do not have to send out the headless browser's request, since the botguard token is generated clientside via JS. Hijack and block the request so you don't get throttled/captcha'd.
 
-As previously stated, the botguard token is generated clientside via JS. To make it you require some form of binary which will get executed at a custom javascript VM. The resulting token *might* be an encrypted string containing personally identifiable information, the current domain name, fingerprinting info, JS variables declared outside the VM, mouse data etc.
+As previously stated, the botguard token is generated clientside via JS. To make it you will recieve some form of binary which will then get executed at a custom javascript VM. The resulting token *might* be an encrypted string containing personally identifiable information, the current domain name, fingerprinting info, **JS variables declared outside the VM**, mouse data etc.
 
-The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the phishing page's domain differs from google.com. If you use google.com as your phishing domain and map google.com to localhost ("127.0.0.1 google.com" to your /etc/hosts file), the login process on the phishing page isn't rejected due to botguard. You can get the credentials and auth tokens. I guess the `window.location` value or domain or whatever is somehow stored in the botguard token.
+The issue at hand with why it doesn't work by default with evilginx (and other tools) is because the phishing page's domain differs from google.com. If you use google.com as your phishing domain and map google.com to localhost (via the hosts file), the login process on the phishing page isn't rejected due to botguard. You can get the credentials and auth tokens. I guess the `window.location` value or domain or whatever is somehow stored in the botguard token.
 
 Google's botguard detects headless browser sessions. To circumvent this, you can use puppeteer's [stealth plugin](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth). If you wish to use these evasions in go-rod, then you can do so via the [go-rod/stealth](https://github.com/go-rod/stealth) package. 
 
