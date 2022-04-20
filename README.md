@@ -48,7 +48,7 @@ Since the genesis of this repository, by fluke or by design, the Google login pa
 
 ## Contact
 
-Feel free to reach out to me if you want to say thanks or point out any inaccuracies/mistakes I made. Phishing (with or w/o MITM tools) is kinda my schtick at the moment, so I'm down to try and solve whatever task/issue you have for some coins. My Telegram is listed on my profile. 
+Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in new challenges. Also feel free to reach out to me if you want to say thanks or point out any inaccuracies/mistakes I made. My Telegram is listed on my profile. 
 
 ## Up to now
 
