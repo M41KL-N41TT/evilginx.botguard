@@ -48,7 +48,7 @@ Since the genesis of this repository, by fluke or by design, the Google login pa
 
 ## Contact
 
-Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in new challenges. Also feel free to reach out to me if you want to say thanks or point out any inaccuracies/mistakes I made. My Telegram is listed on my profile. 
+Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in new challenges. Feel free to reach out to me if you want to say thanks or point out any inaccuracies/mistakes I made. My Jabber is listed on the organization page.
 
 ## Up to now
 
