@@ -9,6 +9,10 @@
 
 This repo will describe a method which allows you to successfully use MITM phishing tools on Google's login page without JS raising a fuss and [blocking login](https://i.stack.imgur.com/MnjWd.png). 
 
+
+>**Warning** 
+>This repo was created a year ago when the login page was still using the v2 login. Google did A/B testing throughout August and completely transitioned to the v3 login page as of September. Information provided here may be outdated and incorrect.
+
 ## What
 
 What I'm describing isn't a generator that creates botguard tokens nor a bypass that voids the botguard mechanism entirely, it isn't even an exploit. What I'm highlighting is that Google's anti-bot JS system uses a token to validate your request and that the token is transported via a request parameter named `bgRequest`. What I'm suggesting is a very crude method of using a headless browser to get a valid token and to use that in place of the failing one with whatever MITM phishing tool you choose. It isn't a solution, it's a quick & dirty workaround to not get blocked. 
@@ -54,7 +58,7 @@ Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in
 
 ![current](./current.png)
 
-## Working method
+## Proposed method
 
 ![botguard](./botguard.png)
 
