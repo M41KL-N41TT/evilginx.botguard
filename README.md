@@ -10,8 +10,9 @@
 This repo will describe a method which allows you to successfully use MITM phishing tools on Google's login page without JS raising a fuss and [blocking login](https://i.stack.imgur.com/MnjWd.png). 
 
 
->**Warning** 
->This repo was created a year ago when the login page was still using the v2 login. Google did A/B testing throughout August and completely transitioned to the v3 login page as of September. Information provided here may be outdated and incorrect.
+> **Warning** 
+> 
+> 🚨🚨🚨 This repo was created a year ago when the login page was still using the v2 login. Google did A/B testing throughout August and completely transitioned to the v3 login page as of September. Information provided here may be outdated and incorrect. 🚨🚨🚨 
 
 ## What
 
