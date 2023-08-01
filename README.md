@@ -12,7 +12,7 @@ This repo will describe a method which allows you to successfully use MITM phish
 
 > **Warning** 
 > 
-> 🚨🚨🚨 This repo was created a year ago when the login page was still using the v2 login. Google did A/B testing throughout August and completely transitioned to the v3 login page as of September. Information provided here may be outdated and incorrect. 🚨🚨🚨 
+> 🚨🚨🚨 This repo was created 2021 when the login page was still using the v2 login. Google did A/B testing throughout August 2022 and completely transitioned to the v3 login page as of September 2022. Information provided here may be outdated and incorrect. 🚨🚨🚨 
 
 ## What
 
@@ -53,7 +53,7 @@ Since the genesis of this repository, by fluke or by design, the Google login pa
 
 ## Contact
 
-Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in new challenges. Feel free to reach out to me if you want to say thanks or point out any inaccuracies/mistakes I made. My Jabber is listed on the organization page.
+Phishing (with and w/o MITM tools) interests me a lot & I'm always interested in new challenges. **Feel free to reach out** to me if you want to say thanks or point out any inaccuracies/mistakes I made.
 
 ## Up to now
 
