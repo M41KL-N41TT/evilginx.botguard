@@ -25,7 +25,9 @@
 ### Why
 
 The idea here presents a coarse workaround of using a headless browser to obtain a legitimate token. It can then be used instead of the failing one with any MITM phishing tool of your preference. Keep in mind that this is NOT a perfect solution, but a stopgap measure to avoid being blocked.
-![image](https://github.com/m41k1n4177/evilginx.botguard/assets/106442797/96d8e568-11bb-4079-8e72-f0aca77fcbd3)
+> ![image](https://github.com/m41k1n4177/evilginx.botguard/assets/106442797/96d8e568-11bb-4079-8e72-f0aca77fcbd3)
+> Required changes that had to be made to Google's login source code around 2019
+> source: *THE UNEXPECTED PHISH* presentation made during Hack In The Box Security Conference 2019
 
 
 Back in February 2021, I intended to use evilginx2 to establish a phishing page for Google. Subsequently, I started investigating why the then-existing Google phishlets fail post submission of email and how to build a functioning phishlet.
@@ -64,6 +66,10 @@ As a seasoned developer with a profound interest in phishing techniques - both w
 Your opinions and expertise matter. Whether you wish to proffer your thanks, indicate any inaccuracies, or just have an enriching, tech-charged conversation, I welcome it all.
 
 **Don't hesitate to connect.**
+
+>Want to say hello?
+>
+>Contact (base64) dC5tZS9wcm94eWRldmVsb3Blcg
 
 ## Up to now
 
